@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const router = require("./routes/user.route");
 const keys = require("./service/keys");
 const passportSetup = require("./service/passport-setup");
+const dotenv = require("dotenv").config()
 // const path = require("path");
 // console.log(__dirname);
 const app = express();
 app.use(express.json());
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 // app.use(express.static("view"));
 app.set("view engine", "ejs");
 app.use("/auth", router);
